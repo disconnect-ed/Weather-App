@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+* {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+tr {
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tbody tr {
+  line-height: 70px;
+  transition: all 0.1s;
+  text-decoration: none;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.search {
+  padding-bottom: 5%;
+}
+
+.select {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.select-preloader {
+  height: 70vh;
+}
+
+.select-img {
+  width: 70px;
+}
+
+.main-title {
+  font-size: 4rem;
+}
+
+.main-date {
+  font-size: 1.2rem;
+}
+
+.main-temp {
+  font-size: 3rem;
+}
+
+.main-desc {
+  font-size: 2rem;
+}
+
+.main-feels {
+  font-size: 1.5rem;
+}
+
+.main-img {
+  width: 150px;
+}
+
+.main-subtitle {
+  font-size: 50px;
+  display: inline-block;
+}
+
+.app {
+  position: absolute;
+  background: rgba(0,0,0,0.3);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.img {
+  width: 150px;
+}
+
+/*.aside {*/
+/*  background: rgba(0, 0, 0, 0.15);*/
+/*  height: 500px;*/
+/*  padding: 15px;*/
+/*  border-radius: 15px;*/
+/*  border: 2px solid rgba(0, 0, 0, 0.5);*/
+
+/*}*/
+
+/*.main {*/
+/*  background: rgba(0, 0, 0, 0.15);*/
+/*  height: 500px;*/
+/*  padding: 15px;*/
+/*  border-radius: 15px;*/
+/*  border: 2px solid rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+/*.weather {*/
+/*  padding-top: 100px;*/
+/*}*/
+
+/*.title {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.weather-info {*/
+/*  text-align: center;*/
+/*}*/
+
+.videoBG {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }

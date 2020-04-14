@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import WeatherContainer from "./components/Weather/WeatherContainer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from "react-bootstrap";
+import clouds from './assets/video/clouds.webm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="app min-vh-100 min-vw-100" >
+        <video className='videoBG' autoPlay loop muted>
+            <source src={clouds} type='video/webm' />
+        </video>
+        <Container >
+                <WeatherContainer/>
+        </Container>
+
+    </section>
   );
 }
 
