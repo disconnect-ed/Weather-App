@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Weather.module.css'
 import {connect} from "react-redux";
 import {
     setWeatherDataCity,
@@ -13,7 +12,12 @@ import Weather from "./Weather";
 class WeatherContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getWeather(this.props.cityName);
+        const city = localStorage.getItem('city');
+        if (city) {
+            this.props.getWeather(city);
+        } else {
+            this.props.getWeather('Minsk');
+        }
 
     }
 
@@ -36,7 +40,7 @@ let mapStateToProps = (state) => {
     return {
         weatherDataList: state.weather.weatherDataList,
         weatherDataCity: state.weather.weatherDataCity,
-        cityName: state.weather.cityName
+        cityName: state.weather.cityName,
     }
 }
 

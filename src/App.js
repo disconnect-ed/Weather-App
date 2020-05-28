@@ -7,7 +7,7 @@ import clouds from './assets/video/clouds.webm';
 
 function App() {
   return (
-    <section className="app min-vh-100 min-vw-100" >
+    <section className="app min-vh-100" >
         <video className='videoBG' autoPlay loop muted>
             <source src={clouds} type='video/webm' />
         </video>

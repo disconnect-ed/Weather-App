@@ -12,30 +12,35 @@ class SelectContainer extends React.Component {
             <div className='d-flex align-items-center justify-content-center select-preloader' ><Preload/></div>
         )
 
-        return (
-            <>
-                <div className='select'>
-                    <Table>
-                        <thead>
+        if (this.props.isError === false) {
+            return (
+                <>
+                    <div className='select'>
+                        <Table responsive>
+                            <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Weather</th>
+                                <th className='column-none'>Weather</th>
                                 <th>Temperature</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <Select isLoading={this.props.isLoading} selectWeather={this.props.selectWeather} weatherDataList={this.props.weatherDataList} />
-                        </tbody>
-                    </Table>
-                </div>
-            </>
-        )
+                            </tbody>
+                        </Table>
+                    </div>
+                </>
+            )
+        } else {
+            return null
+        }
     }
 }
 
 let mapStateToProps = (state) => {
     return {
         isLoading: state.weather.isLoading,
+        isError: state.weather.isError,
     }
 }
 

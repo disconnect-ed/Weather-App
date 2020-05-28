@@ -5,13 +5,15 @@ const UPDATE_CITY_NAME = 'UPDATE_CITY_NAME';
 const SET_WEATHER_DATA_LIST = 'SET_WEATHER_DATA_LIST';
 const SELECT_MAIN_WEATHER = 'SELECT_MAIN_WEATHER';
 const IS_LOADING = 'IS_LOADING';
+const IS_ERROR = 'IS_ERROR';
 
 let initialState = {
-    cityName: 'Minsk',
+    cityName: '',
     weatherDataCity: [],
     weatherDataList: [],
     mainWeather: null,
-    isLoading: false
+    isLoading: false,
+    isError: false,
 }
 
 
@@ -43,6 +45,11 @@ const weatherReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.bool
             }
+        case IS_ERROR:
+            return {
+                ...state,
+                isError: action.bool
+            }
         default:
             return state
     }
@@ -52,7 +59,9 @@ export const setWeatherDataCity = (weatherData) => ({type: SET_WEATHER_DATA_CITY
 export const updateCityName = (cityName) => ({type: UPDATE_CITY_NAME, cityName});
 export const setWeatherDataList = (weatherData) => ({type: SET_WEATHER_DATA_LIST, weatherData})
 export const selectMainWeather = (mainWeather) => ({type: SELECT_MAIN_WEATHER, mainWeather});
-export const isLoading = (bool) => ({type: IS_LOADING, bool})
+export const isLoading = (bool) => ({type: IS_LOADING, bool});
+export const isError = (bool) => ({type: IS_ERROR, bool});
+
 
 export const getWeather = (cityName) => {
     return (dispatch) => {
@@ -61,16 +70,20 @@ export const getWeather = (cityName) => {
             .then(response => {
                 dispatch(setWeatherDataCity(response.data));
                 dispatch(setWeatherDataList(response.data));
+                dispatch(updateCityName(cityName));
+                localStorage.setItem('city', cityName);
                 dispatch(isLoading(false));
-            })
+                dispatch(isError(false));
+            },
+            error => {
+                console.log(error);
+                dispatch(isLoading(false));
+                dispatch(isError(true));
+            }
+            )
     }
 }
 
-export const weatherDataIsLoading = (bool) => {
-    return (dispatch) => {
-        dispatch(isLoading(bool))
-    }
-}
 
 export const selectWeather = (mainWeather) => {
     return async (dispatch) => {
