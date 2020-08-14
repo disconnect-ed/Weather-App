@@ -1,10 +1,14 @@
 import React from 'react';
+import {WeatherDataCityType, WeatherDataListItemType} from "../../types/types";
 
+type MainPropsType = {
+    weatherDataCity: WeatherDataCityType
+    mainWeather: WeatherDataListItemType
+}
 
-export const Main = ({weatherDataCity, mainWeather}) => {
+export const Main: React.FC<MainPropsType> = ({weatherDataCity, mainWeather}) => {
 
     return (
-        <>
             <div className="main">
                 <div className="row flex-column justify-content-center text-center">
                     <div className="col-12 p-0">
@@ -23,7 +27,6 @@ export const Main = ({weatherDataCity, mainWeather}) => {
                     </div>
                 </div>
             </div>
-        </>
     )
 
 }

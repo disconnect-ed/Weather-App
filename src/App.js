@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import WeatherContainer from "./components/Weather/WeatherContainer";
+import {WeatherContainer} from "./components/Weather/WeatherContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "react-bootstrap";
 import clouds from './assets/video/clouds.webm';

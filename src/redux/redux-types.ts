@@ -1,8 +1,9 @@
 export type initialStateTypes = {
     cityName: string
-    weatherDataCity: []
+    weatherDataCity: null | object
     weatherDataList: []
-    mainWeather: null | object
+    mainWeather: null | undefined | object
     isLoading: boolean
     isError: boolean
 }
+

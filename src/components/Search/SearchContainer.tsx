@@ -1,23 +1,24 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {Search} from "./Search";
 import {useDispatch, useSelector} from "react-redux";
 import {getWeather, updateCityName} from "../../redux/weather-reducer";
+import {AppStateType} from "../../redux/store";
 
-export const SearchContainer = () => {
+export const SearchContainer: React.FC = () => {
 
     const dispatch = useDispatch()
-    const cityName = useSelector(state => state.weather.cityName)
+    const cityName = useSelector((state: AppStateType) => state.weather.cityName)
 
-    const onChange = (e) => {
-        let text = e.target.value
+    const onChange = (e: ChangeEvent): void => {
+        let text = (e.target as HTMLInputElement).value
         dispatch(updateCityName(text))
     }
 
-    const onClick = () => {
+    const onClick = (): void => {
         dispatch(getWeather(cityName))
     }
 
-    const onKeyPress = (e) => {
+    const onKeyPress = (e: React.KeyboardEvent): void => {
         if (e.key === 'Enter') {
             dispatch(getWeather(cityName))
         }

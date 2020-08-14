@@ -4,15 +4,17 @@ import Select from "./Select";
 import {useDispatch, useSelector} from "react-redux";
 import Preload from "../common/Preload";
 import {selectWeather} from "../../redux/weather-reducer";
+import {AppStateType} from "../../redux/store";
+import {WeatherDataListItemType} from "../../types/types";
 
-export const SelectContainer = () => {
+export const SelectContainer: React.FC = () => {
 
     const dispatch = useDispatch()
-    const isLoading = useSelector(state => state.weather.isLoading)
-    const isError = useSelector(state => state.weather.isError)
-    const weatherDataList = useSelector(state => state.weather.weatherDataList)
+    const isLoading = useSelector((state: AppStateType) => state.weather.isLoading)
+    const isError = useSelector((state: AppStateType) => state.weather.isError)
+    const weatherDataList = useSelector((state: AppStateType) => state.weather.weatherDataList)
 
-    const onClick = (data) => {
+    const onClick = (data: WeatherDataListItemType): void => {
         dispatch(selectWeather(data))
     }
 
@@ -41,5 +43,3 @@ export const SelectContainer = () => {
         </div>
     )
 }
-
-// export default connect(mapStateToProps)(SelectContainer);

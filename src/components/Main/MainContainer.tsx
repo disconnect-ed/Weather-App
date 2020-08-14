@@ -3,15 +3,16 @@ import {Main} from "./Main";
 import {useSelector} from "react-redux";
 import Error from "../common/Error";
 import Preload from "../common/Preload";
+import {AppStateType} from "../../redux/store";
 
-export const MainContainer = () => {
+export const MainContainer: React.FC = () => {
 
-    const isError = useSelector(state => state.weather.isError)
-    const weatherDataCity = useSelector(state => state.weather.weatherDataCity)
-    const mainWeather = useSelector(state => state.weather.mainWeather)
-    const isLoading = useSelector(state => state.weather.isLoading)
+    const isError = useSelector((state: AppStateType) => state.weather.isError)
+    const weatherDataCity = useSelector((state: AppStateType) => state.weather.weatherDataCity)
+    const mainWeather = useSelector((state: AppStateType) => state.weather.mainWeather)
+    const isLoading = useSelector((state: AppStateType) => state.weather.isLoading)
 
-    if (!mainWeather || isLoading) {
+    if (Object.keys(mainWeather).length === 0 || isLoading) {
         return <Preload/>
     }
 

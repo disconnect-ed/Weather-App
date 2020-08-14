@@ -1,12 +1,11 @@
 import React from "react";
 
-const Error = (props) => {
+const Error = () => {
     return (
         <div className="col-12 text-center">
             <div>
-                <h1>Ой...</h1>
-                <h2>Произошла ошибка :(</h2>
-                <p className='error'>{props.errorText}</p>
+                <h1>Ooops...</h1>
+                <h2>An error has occurred :(</h2>
             </div>
         </div>
     )

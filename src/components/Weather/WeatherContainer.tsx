@@ -5,7 +5,7 @@ import {
 } from "../../redux/weather-reducer";
 import {Weather} from "./Weather";
 
-export const WeatherContainer = () => {
+export const WeatherContainer: React.FC = () => {
 
     const dispatch = useDispatch()
 

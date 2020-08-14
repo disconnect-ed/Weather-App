@@ -3,7 +3,7 @@ import {SelectContainer} from "../Select/SelectContainer";
 import {MainContainer} from "../Main/MainContainer";
 import {SearchContainer} from "../Search/SearchContainer";
 
-export const Weather = () => {
+export const Weather: React.FC = () => {
 
     return (
         <div className='row flex-wrap-reverse min-vh-100' >
