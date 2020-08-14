@@ -1,10 +1,9 @@
 import React from 'react'
-import Search from "../Search/Search";
-import SelectContainer from "../Select/SelectContainer";
-import MainContainer from "../Main/MainContainer";
+import {SelectContainer} from "../Select/SelectContainer";
+import {MainContainer} from "../Main/MainContainer";
+import {SearchContainer} from "../Search/SearchContainer";
 
-const Weather = (props) => {
-
+export const Weather = () => {
 
     return (
         <div className='row flex-wrap-reverse min-vh-100' >
@@ -18,18 +17,10 @@ const Weather = (props) => {
             <div className="col-lg-6 col-12 d-flex align-items-center pt-lg-0 pt-5">
                 <div className="d-flex flex-column m-auto">
                     <div>
-                        <Search
-                            updateCityName={props.updateCityName}
-                            getWeather={props.getWeather}
-                            cityName={props.cityName}
-                        />
+                        <SearchContainer/>
                     </div>
                     <div>
-                        {
-
-                        }
-                        <SelectContainer selectWeather={props.selectWeather}
-                            weatherDataList={props.weatherDataList} />
+                        <SelectContainer/>
                     </div>
                 </div>
             </div>
@@ -37,5 +28,3 @@ const Weather = (props) => {
 
     )
 }
-
-export default Weather;

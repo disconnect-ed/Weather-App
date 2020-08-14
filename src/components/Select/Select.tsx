@@ -2,11 +2,11 @@ import React from "react";
 
 
 
-const Select = ({selectWeather, ...props}) => {
+const Select = ({onClick, weatherDataList}) => {
 
     return (
         <>
-            {props.weatherDataList.map(data => <tr key={data.dt_txt} onClick={() => {selectWeather(data)}} >
+            {weatherDataList.map(data => <tr key={data.dt_txt} onClick={() => {onClick(data)}} >
 
                     <td className='p-0 select-date' >
                         {data.dt_txt}

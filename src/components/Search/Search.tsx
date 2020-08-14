@@ -1,18 +1,7 @@
 import React from 'react';
 import {Button, FormControl} from "react-bootstrap";
 
-const Search = React.memo(function Search(props) {
-
-    let newCity = React.createRef();
-
-    let onChange = () => {
-        let text = newCity.current.value;
-        props.updateCityName(text);
-    }
-
-    let onClick = () => {
-        props.getWeather(props.cityName)
-    }
+export const Search = React.memo(function Search({onChange, onClick, cityName, onKeyPress}) {
 
     return (
         <div className='col-12' >
@@ -21,7 +10,7 @@ const Search = React.memo(function Search(props) {
                     <h2>Your city:</h2>
                     <div className="col-md-10 col-9 p-0">
                         <FormControl
-                            onChange={onChange} value={props.cityName} ref={newCity} type="text"
+                            onChange={(e) => onChange(e)} onKeyPress={(e) => onKeyPress(e)} value={cityName} type="text"
                         />
                     </div>
                     <div className="col-md-2 col-3 p-0">
@@ -32,5 +21,3 @@ const Search = React.memo(function Search(props) {
         </div>
     )
 })
-
-export default Search;
